@@ -1,5 +1,5 @@
 import express from "express";
-import { getFilm, getLists, getFilmFile } from "./lists";
+import { getFilm, getLists, getFilmFile, getThumbnailFile } from "./lists";
 import { list } from "../types";
 
 export const startServer = () => {
@@ -53,6 +53,14 @@ export const startServer = () => {
         const film = await getFilmFile(id);
 
         res.send(film);
+    })
+
+    app.get("/api/film/thumbnail", async (req: filmRequest, res) => {
+        const id = parseInt(req.query.id);
+
+        const thumbnail = await getThumbnailFile(id);
+
+        res.send(thumbnail);
     })
 
     app.listen(8383);

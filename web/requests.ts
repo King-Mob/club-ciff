@@ -11,3 +11,7 @@ export const getFilmInfoRequest = async (id: number) => {
 export const getVideoFileRequest = async (id: number) => {
     return fetch(`${API_URL}/api/film/file?id=${id}`);
 }
+
+export const getThumbnailFileRequest = async (id: number) => {
+    return fetch(`${API_URL}/api/film/thumbnail?id=${id}`);
+}

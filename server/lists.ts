@@ -72,3 +72,16 @@ export const getFilmFile = async (id) => {
         }
     }
 }
+
+export const getThumbnailFile = async (id) => {
+    const film = await getFilm(id);
+
+    const fileNames = await fs.readdir(path.resolve(film.location));
+
+    for (const fileName of fileNames) {
+        if (fileName.includes(".jpg")) {
+            const file = await fs.readFile(path.resolve(film.location + "/" + fileName));
+            return file;
+        }
+    }
+}

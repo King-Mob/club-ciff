@@ -19,11 +19,7 @@ const Film = ({ id }) => {
     const videoBlob = await videoResponse.blob();
 
     const videoFile = new File([videoBlob], "demo.mp4", { type: "video/mp4" });
-
-    console.log(videoBlob);
     const videoUrl = URL.createObjectURL(videoFile);
-    console.log(videoFile);
-    console.log(videoUrl);
 
     setVideoSource(videoUrl);
   };
